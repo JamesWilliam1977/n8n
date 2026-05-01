@@ -1,0 +1,486 @@
+# Instincts generated from https://github.com/JamesWilliam1977/n8n
+# Generated: 2026-05-01T13:35:36.841Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: n8n-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, refactor
+
+## Evidence
+
+- 7 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix(core): Wire EncryptionKeyProxy provider on bootstrap (#29581), feat(core): Add built-in cluster health checks (no-changelog) (#29506)
+
+---
+id: n8n-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Commit Length
+
+## Action
+
+Write moderate-length commit messages (~66 characters)
+
+## Evidence
+
+- Average commit message length: 66 chars
+- Based on 7 commits
+
+---
+id: n8n-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: n8n-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: n8n-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: n8n-arch-feature-based
+trigger: "when adding a new feature"
+confidence: 0.85
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Arch Feature Based
+
+## Action
+
+Create a new folder in src/features/ with all related code colocated
+
+## Evidence
+
+- Feature-based module organization detected
+- Structure: src/features/[feature-name]/
+
+---
+id: n8n-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.ts
+
+---
+id: n8n-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: n8n-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: no
+
+---
+id: n8n-workflow-feature-or-bugfix-with-tests
+trigger: "when doing feature or bugfix with tests"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Workflow Feature Or Bugfix With Tests
+
+## Action
+
+Follow the feature-or-bugfix-with-tests workflow:
+1. Edit or create implementation files (e.g., .ts, .vue) in the relevant module or feature directory.
+2. Edit or create corresponding test files (e.g., .test.ts, .test.vue) in the same or related directory.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: **/*.ts, **/*.vue, **/*.test.ts
+
+---
+id: n8n-workflow-frontend-feature-or-bugfix-with-store-and-view
+trigger: "when doing frontend feature or bugfix with store and view"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/JamesWilliam1977/n8n
+---
+
+# N8n Workflow Frontend Feature Or Bugfix With Store And View
+
+## Action
+
+Follow the frontend-feature-or-bugfix-with-store-and-view workflow:
+1. Edit or create a store file (e.g., *.store.ts) in the frontend feature directory.
+2. Edit or create a view or component file (e.g., *.vue) in the same feature directory.
+3. Edit or create a corresponding test file (e.g., *.test.ts or *.test.vue).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/frontend/**/features/**/*.store.ts, packages/frontend/**/features/**/*.vue, packages/frontend/**/features/**/*.test.ts
+
+---
+id: n8n-instinct-file-naming-camelCase
+trigger: "When creating a new file (excluding classes or constants)"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct File Naming CamelCase
+
+## Action
+
+Name the file using camelCase.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files: camelCase
+
+---
+id: n8n-instinct-function-naming-camelCase
+trigger: "When declaring a function"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Function Naming CamelCase
+
+## Action
+
+Name the function using camelCase.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions: camelCase
+
+---
+id: n8n-instinct-class-naming-pascalCase
+trigger: "When declaring a class"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Class Naming PascalCase
+
+## Action
+
+Name the class using PascalCase.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes: PascalCase
+
+---
+id: n8n-instinct-constant-naming-screaming-snake-case
+trigger: "When declaring a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Constant Naming Screaming Snake Case
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE.
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: n8n-instinct-import-style-relative
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Import Style Relative
+
+## Action
+
+Use relative import paths.
+
+## Evidence
+
+- Pattern in codeStyle.importStyle: relative
+
+---
+id: n8n-instinct-export-style-named
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Export Style Named
+
+## Action
+
+Use named exports.
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle: named
+
+---
+id: n8n-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Test File Pattern
+
+## Action
+
+Name the test file with the pattern *.test.ts or *.test.vue.
+
+## Evidence
+
+- Pattern in testing.filePattern: *.test.ts
+- Pattern in workflows.filesInvolved
+
+---
+id: n8n-instinct-test-framework-jest
+trigger: "When writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Test Framework Jest
+
+## Action
+
+Use the Jest testing framework.
+
+## Evidence
+
+- Pattern in testing.framework: jest
+
+---
+id: n8n-instinct-test-types-unit-integration
+trigger: "When writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Test Types Unit Integration
+
+## Action
+
+Write unit or integration tests as appropriate.
+
+## Evidence
+
+- Pattern in testing.testTypes: unit, integration
+
+---
+id: n8n-instinct-commit-conventional-format
+trigger: "When making a commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Commit Conventional Format
+
+## Action
+
+Format the commit message as <type>(<scope>): <description>.
+
+## Evidence
+
+- Seen in commit: fix(core): Wire EncryptionKeyProxy provider on bootstrap (#29581)
+- Pattern in commits.type: conventional
+
+---
+id: n8n-instinct-commit-prefixes
+trigger: "When making a commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Commit Prefixes
+
+## Action
+
+Begin the commit message with one of: fix, feat, or refactor.
+
+## Evidence
+
+- Seen in commit: fix: Drop template search tools from builder (#29573)
+- Pattern in commits.prefixes
+
+---
+id: n8n-instinct-feature-or-bugfix-with-tests
+trigger: "When adding a new feature or fixing a bug and ensuring it is tested"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Feature Or Bugfix With Tests
+
+## Action
+
+Edit or create implementation files (.ts, .vue) and corresponding test files (.test.ts, .test.vue) in the relevant module or feature directory.
+
+## Evidence
+
+- Workflow: feature-or-bugfix-with-tests
+- Pattern in workflows.filesInvolved
+
+---
+id: n8n-instinct-frontend-feature-or-bugfix-with-store-and-view
+trigger: "When adding or fixing a frontend feature involving both state management and UI"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: JamesWilliam1977/n8n
+---
+
+# N8n Instinct Frontend Feature Or Bugfix With Store And View
+
+## Action
+
+Edit or create a store file (*.store.ts), a view/component file (*.vue), and a corresponding test file (*.test.ts or *.test.vue) in the frontend feature directory.
+
+## Evidence
+
+- Workflow: frontend-feature-or-bugfix-with-store-and-view
+- Pattern in workflows.filesInvolved
+
